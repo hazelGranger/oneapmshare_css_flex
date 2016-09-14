@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>force_reflow_repaint</title>
+	<style type="text/css">
+		body{
+			font-family: "Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,Verdana,"Microsoft Yahei",sans-serif;
+			font-size: 20px;
+		}
+		.eg{
+			width: 200px;
+			height: 200px;
+			background: #7acef4;
+		}
+		.has-transition{
+			-webkit-transition: margin 1s ease-in-out;
+			-moz-transition: margin 1s ease-in-out;
+			-o-transition: margin 1s ease-in-out;
+			transition: margin 1s ease-in-out;
+		}
+	</style>
+</head>
+<body>
+	<div class="eg has-transition">click</div>
+	<script src="/bower_components/jquery-3.1.0.min/index.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$('.eg').click(function(){
+				var $elmt = $(this);
+				$elmt.removeClass("has-transition");
+				$elmt.css('margin-left', 100);
+				// 强制 reflow 或 repaint
+				$elmt.css('margin-left');
+				$elmt.addClass("has-transition");
+				$elmt.css('margin-left', 50);
+			});
+		});
+	</script>
+</body>
+</html>

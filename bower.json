@@ -1,0 +1,20 @@
+{
+  "name": "oneapmshare",
+  "authors": [
+    "wanzghen <wangzhen@blueocn.com.cn>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-3.1.0.min": "https://code.jquery.com/jquery-3.1.0.min.js"
+  }
+}

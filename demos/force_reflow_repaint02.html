@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>force_reflow_repaint</title>
+	<style type="text/css">
+		body{
+			font-family: "Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,Verdana,"Microsoft Yahei",sans-serif;
+			font-size: 20px;
+		}
+		button{
+			font-size: inherit;
+			outline: 0;
+			background: #FF9640;
+			border: 1px solid #FF7300;
+			padding: 10px;
+			cursor: pointer;
+		}
+		.eg{
+			width: 200px;
+			height: 200px;
+			background: #7acef4;
+			display: none;
+			opacity: 0;
+			transform: scale(0.5);
+			-webkit-transition: transform 1s ease-in-out,opacity 1s ease-in-out;
+			-moz-transition: transform 1s ease-in-out,opacity 1s ease-in-out;
+			-o-transition: transform 1s ease-in-out,opacity 1s ease-in-out;
+			-ms-transition: transform 1s ease-in-out,opacity 1s ease-in-out;
+			transition: transform 1s ease-in-out,opacity 1s ease-in-out;
+		}
+		.show{
+			display: block;
+			transform: scale(1);
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">click</button>
+	<div class="eg"></div>
+	<script src="/bower_components/jquery-3.1.0.min/index.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#btn').click(function(){
+				$('.eg').show();
+				//通过获取属性 强制 reflow  repaint
+				//$('.eg').css("opacity");
+				$('.eg').addClass("show");
+				//其他办法 setTimeout
+				// setTimeout(function(){
+				// 	$('.eg').addClass("show");
+				// },100);
+			});
+		});
+	</script>
+</body>
+</html>
