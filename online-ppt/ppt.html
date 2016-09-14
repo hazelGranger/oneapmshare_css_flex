@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css</title>
+	<link rel="stylesheet" type="text/css" href="slideshow.css">
+	<link rel="stylesheet" type="text/css" href="theme.css">
+	<style type="text/css">
+		body{
+			color: #fff;
+		}
+		.slide{
+			background: #fff;
+			color: #000;
+			text-shadow: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="slide" data-index="0">
+		<h2>{css}</h2>
+		<h3>CSS 的浏览器渲染机制与 flex-box 实战</h3>
+	</div>
+	<div class="slide" data-index="1">
+		<h2>css ?</h2>
+		<h3>层叠样式表 (Cascading Style Sheets)</h3><br/>
+		<h3>浏览器缺省设置;外部样式表;内部样式表;内联样式;</h3><br/>
+		<h3>selector {property: value;property: value;……}</h3>
+	</div>
+	<div class="slide" data-index="2">
+		<h2>选择器</h2>
+		<ul>
+			<li>body{}</li>
+			<li>.body{}</li>
+			<li>#body{}</li>
+			<li>li a{}</li>
+			<li>li > div {color:red;}</li>
+			<li>li + li {font-weight:bold;}</li>
+			<li>input~label{}</li>
+			<li>a[src^="https"],a[src$=".pdf"],a[src*="abc"]</li>
+			<li>伪类： a:hover,div:first-child</li>
+			<li>伪元素： p:first-letter,div:before</li>
+		</ul>
+	</div>
+	<div class="slide" data-index="3">gsdg</div>
+	<!-- <script src="classList.js"></script> -->
+	<script src="slideshow.js"></script>
+	<script>
+		var slideshow = new SlideShow();
+	</script>
+</body>
+</html>

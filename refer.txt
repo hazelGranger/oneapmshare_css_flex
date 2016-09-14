@@ -1,0 +1,3 @@
+默认display： https://www.w3.org/TR/CSS2/sample.html
+
+浏览器工作原理： http://kb.cnblogs.com/page/129756/#chapter8
