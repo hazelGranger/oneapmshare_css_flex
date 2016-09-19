@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery-3.1.0.min": "https://code.jquery.com/jquery-3.1.0.min.js"
+    "jquery-3.1.0.min": "https://code.jquery.com/jquery-3.1.0.min.js",
+    "font-awesome": "~4.6.3"
   }
 }

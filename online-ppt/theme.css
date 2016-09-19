@@ -106,7 +106,7 @@ strong, b {
 	.slide h2 {
 		font-family: 'Helvetica Neue', Helvetica, sans-serif;
 		font-weight: 100;
-		font-size: 1.2in;
+		font-size: 60px;
 	}
 	
 	.slide p,
@@ -134,6 +134,7 @@ strong, b {
 			
 		.slide li {
 			margin:.2em 0;
+			font-size: 30px;
 		}
 		
 		.slide > ul > li:before {

@@ -14,6 +14,12 @@
 			color: #000;
 			text-shadow: none;
 		}
+		.slide p{
+			font-size: 20px;
+		}
+		a{
+			color: #199bff;
+		}
 	</style>
 </head>
 <body>
@@ -42,8 +48,153 @@
 			<li>伪元素： p:first-letter,div:before</li>
 		</ul>
 	</div>
-	<div class="slide" data-index="3">gsdg</div>
-	<!-- <script src="classList.js"></script> -->
+	<div class="slide" data-index="3">
+		<h2>浏览器</h2>
+		<img src="1.png" alt="" style="width: 600px;">
+		<h3>用户界面;浏览器引擎;渲染引擎;网络;UI 后端;JS解释器;数据存储</h3>
+	</div>
+	<div class="slide" data-index="4">
+		<h2>渲染引擎</h2>
+		<img src="2.png" alt="">
+		<ul>
+			<li>构造 DOM 树</li>
+			<li>构造渲染树</li>
+			<li>布局</li>
+			<li>绘制</li>
+		</ul>
+	</div>
+	<div class="slide" data-index="4">
+		<h2>Webkit 主流程</h2>
+		<img src="3.png" alt="">
+	</div>
+	<div class="slide" data-index="5">
+		<h2>构造 DOM 树</h2>
+		<h3>解析 HTML</h3>
+		<img src="4.png" alt="">
+		<img src="5.png" alt="">
+	</div>
+	<div class="slide" data-index="6">
+		<h2>构造渲染树</h2>
+		<h3>解析 CSS</h3>
+		<img src="6.png" style="width: 600px;">
+	</div>
+	<div class="slide" data-index="7">
+		<h2>构造渲染树</h2>
+		<h3>attachment</h3>
+		<p>Webkit中，计算样式并生成渲染对象的过程称为attachment，每个Dom节点有一个attach方法，attachment的过程是同步的，调用新节点的attach方法将节点插入到Dom树中。</p>
+		<p>Firefox 规则树</p>
+		<h3>DOM Tree 不等于 渲染树 </h3>
+		<ul>
+			<li>display:none 元素</li>
+			<li>复杂结构元素： 如 select
+				<select name="" id="" style="vertical-align: text-top;margin-top: 3px;margin-left: 10px;">
+					<option value="1">1</option>
+					<option value="1">2</option>
+				</select>
+			</li>
+			<li>不规范的html</li>
+			<li>一些渲染对象和所对应的Dom节点不在树上相同的位置，例如，浮动和绝对定位的元素在文本流之外，在两棵树上的位置不同.</li>
+		</ul>
+	</div>
+	<div class="slide" data-index="8">
+		<h2>Firefox 规则树</h2>
+		<img src="7.png" alt="">
+		<img src="8.png" alt="">
+		<img src="9.png" alt="">
+	</div>
+	<div class="slide" data-index="9">
+		<h2>布局 Layout</h2>
+		<p>当渲染对象被创建并添加到树中，它们并没有位置和大小，计算这些值的过程称为 layout 或 reflow。</p>
+		<p>全局&增量；异步&同步</p>
+		<br/>
+		<h2>绘制 Paint</h2>
+		<p>绘制顺序</p>
+		<p>背景色 -> 背景图 －> border －> children －> outline  </p>
+		<p><a href="https://www.w3.org/TR/CSS21/zindex.html" target="blank">详情</a></p>
+	</div>
+	<div class="slide" data-index="10">
+		<h2>Repaint vs Reflow</h2>
+		<p>Repaint：用新的样式重绘元素，成本较低，例如 color，border－color，visibility</p>
+		<p>Reflow：影响文档内容和结构的，成本较高。</p>
+		<ul>
+			<li>DOM 节点的改变</li>
+			<li>元素尺寸，定位</li>
+			<li>文本内容</li>
+			<li>window.resize</li>
+			<li>hover</li>
+		</ul>
+	</div>
+	<div class="slide" data-index="11">
+		<h2>Suggestion</h2>
+		<ul>
+			<li>有效的html，css；文档编码</li>
+			<li>css 尽量放 head 中</li>
+			<li>css 选择器性能</li>
+			<li>尽量避免 js 逐个修改 DOM 样式，定义好 class 好一些</li>
+			<li>动画元素 尽量用 position： fixed 或者 absolute</li>
+			<li>把访问元素属性的操作都组织在一起</li>
+		</ul>
+		<br/>
+		<p><a href="http://localhost:8080/demos/" target="_blank">强制重排（reflow）</a></p>
+	</div>
+	<div class="slide" data-index="12">
+		<h2>CSS2 可视模型</h2>
+		<p>盒子模型</p>
+		<img src="a.jpg" alt="">
+		<p>display: block ? inline ? none</p>
+		<p>定位策略 Position scheme</p>
+		<ul>
+			<li>normal</li>
+			<li>float</li>
+			<li>absolute</li>
+		</ul>
+	</div>
+	<div class="slide" data-index="13">
+		<h2>栅格系统</h2>
+		<p>浮动栅格</p>
+		<ul>
+			<li>Bootstrap <a href="http://v3.bootcss.com/css/#grid" target="_blank">eg</a></li>
+			<li>Foundation <a href="http://www.foundcss.com/grid" target="_blank">eg</a></li>
+		</ul>
+		
+		<p>flexbox 栅格</p>
+		<ul>
+			<li>Pure.css <a href="http://purecss.io/grids/" target="_blank">eg</a></li>
+			<li>Semantic UI <a href="http://semantic-ui.com/examples/responsive.html" target="_blank">eg</a></li>
+		</ul>
+	</div>
+	<div class="slide" data-index="14">
+		<h2>Flex 布局</h2>
+		<p>弹性布局</p>
+		<ul>
+			<li>Flex容器（flex container）</li>
+			<li>Flex项目 （flex item）</li>
+		</ul>
+		<img src="b.png" alt="">
+		<p>书写模式——direction: ltr,rtl（默认从左到右，从上到下）</p>
+		<p>主轴起点，主轴终点，主轴方向；侧轴（交叉轴）起点，侧轴终点，侧轴方向；</p>
+		<p>(容器) flex-direction: row | row-reverse | column | column-reverse</p>
+		<p>(容器) flex-wrap: nowrap | wrap | wrap-reverse</p>
+		<p>(容器) flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</p>
+	</div>
+	<div class="slide" data-index="14">
+		<h2>Flex 布局</h2>
+		<p>(容器-主轴) justify-content: flex-start | flex-end | center | space-between | space-around;</p>
+		<p>(容器-侧轴) align-items: flex-start | flex-end | center | baseline | stretch;<br/>&nbsp;&nbsp;stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+		<br/>
+		<p>(项目) order: &lt;integer&gt;;</p>
+		<p>(项目) flex: 默认值为 0 1 auto</p>
+		<p>(项目) flex-grow,flex-shrink,flex-basis</p>
+		<p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+		<a href="http://codepen.io/osublake/pen/dMLQJr" target="_blank">codepen 链接</a>
+	</div>
+	<div class="slide" data-index="15">
+		<h2>兼容性</h2>
+		<img src="c.png" style="max-width:100%;">
+	</div>
+	<div class="slide" data-index="16">
+		<h2>Thanks</h2>
+	</div>
 	<script src="slideshow.js"></script>
 	<script>
 		var slideshow = new SlideShow();
