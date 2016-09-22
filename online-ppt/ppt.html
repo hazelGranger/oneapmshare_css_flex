@@ -8,6 +8,7 @@
 	<style type="text/css">
 		body{
 			color: #fff;
+			font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
 		}
 		.slide{
 			background: #fff;
@@ -20,18 +21,30 @@
 		a{
 			color: #199bff;
 		}
+		h3{
+			color: #67ce00;
+			font-size: 30px;
+			line-height: 1.8;
+		}
 	</style>
 </head>
 <body>
 	<div class="slide" data-index="0">
 		<h2>{css}</h2>
 		<h3>CSS 的浏览器渲染机制与 flex-box 实战</h3>
+		<ul>
+			<li>css 简介</li>
+			<li>浏览器是怎么渲染 css 的？</li>
+			<li>css2 可视模型 和 各种栅格系统</li>
+			<li>flex 布局模型</li>
+		</ul>
 	</div>
-	<div class="slide" data-index="1">
+	<div class="slide showimg" data-index="1">
 		<h2>css ?</h2>
-		<h3>层叠样式表 (Cascading Style Sheets)</h3><br/>
-		<h3>浏览器缺省设置;外部样式表;内部样式表;内联样式;</h3><br/>
+		<h3>层叠样式表 (Cascading Style Sheets)</h3>
+		<h3>浏览器缺省设置;外部样式表;内部样式表;内联样式;</h3>
 		<h3>selector {property: value;property: value;……}</h3>
+		<img src="eg.jpeg" alt="" style="max-width: 500px;" class="delayed">
 	</div>
 	<div class="slide" data-index="2">
 		<h2>选择器</h2>
@@ -43,7 +56,7 @@
 			<li>li > div {color:red;}</li>
 			<li>li + li {font-weight:bold;}</li>
 			<li>input~label{}</li>
-			<li>a[src^="https"],a[src$=".pdf"],a[src*="abc"]</li>
+			<li>a[target=_blank],a[title~=flower],a[src^="https"],a[src$=".pdf"],a[src*="abc"]</li>
 			<li>伪类： a:hover,div:first-child</li>
 			<li>伪元素： p:first-letter,div:before</li>
 		</ul>
@@ -55,9 +68,9 @@
 	</div>
 	<div class="slide" data-index="4">
 		<h2>渲染引擎</h2>
-		<img src="2.png" alt="">
+		<img src="1-1.png" alt="" style="width: 600px;">
 		<ul>
-			<li>构造 DOM 树</li>
+			<li>构造 DOM 树,CSSOM 树</li>
 			<li>构造渲染树</li>
 			<li>布局</li>
 			<li>绘制</li>
@@ -68,15 +81,51 @@
 		<img src="3.png" alt="">
 	</div>
 	<div class="slide" data-index="5">
-		<h2>构造 DOM 树</h2>
+		<h2>构造 DOM 树,CSSOM 树</h2>
 		<h3>解析 HTML</h3>
-		<img src="4.png" alt="">
-		<img src="5.png" alt="">
+		<img src="htmleg.png" alt="">
+		<img src="dom-tree.png" alt="">
+	</div>
+	<div class="slide" data-index="5">
+		<h2>构造 DOM 树,CSSOM 树</h2>
+		<h3>解析 HTML</h3>
+		<ul>
+			<li>语言的宽容特性</li>
+			<li>不能自顶向下或者自底向上解析</li>
+			<li>解析可以被中断</li>
+			<li>预解析</li>
+		</ul>
+	</div>
+	<div class="slide" data-index="5">
+			<img src="xml.png" alt="" >
+			<img src="parse-input.png" alt="" ><br/>
+			<a href="/demos/parse.html" target="_blank" style="font-size: 20px;">解析例子</a>
+	</div>
+	<div class="slide" data-index="5">
+		<img src="halt.png" alt="">
+		<h3>这些标签会中断解析 HTML，因为 script 的执行会改变 DOM</h3>
+		<ul>
+			<li>网络延时</li>
+			<li>link,style 中的样式也会中断 JS 执行</li>
+		</ul>
+	</div>
+	<div class="slide" data-index="5">
+		<img src="spcu.png" alt="">
+		<p>浏览器遇到这些标签需要加载资源但是不改变 DOM <br/>会再开线程去加载资源，而不影响解析</p><br/>
+		<img src="scriptbtm.png" alt="">
+	</div>
+	<div class="slide" data-index="6">
+		<h2>构造 DOM 树,CSSOM 树</h2>
+		<h3>解析 CSS</h3>
+		<img src="6.png" style="width: 600px;">
+	</div>
+	<div class="slide" data-index="6">
+		<img src="csseg.png" alt="">
+		<img src="cssom-tree.png" >
 	</div>
 	<div class="slide" data-index="6">
 		<h2>构造渲染树</h2>
-		<h3>解析 CSS</h3>
-		<img src="6.png" style="width: 600px;">
+		<img src="render-tree-construction.png" alt="">
 	</div>
 	<div class="slide" data-index="7">
 		<h2>构造渲染树</h2>
@@ -103,10 +152,22 @@
 		<img src="9.png" alt="">
 	</div>
 	<div class="slide" data-index="9">
-		<h2>布局 Layout</h2>
-		<p>当渲染对象被创建并添加到树中，它们并没有位置和大小，计算这些值的过程称为 layout 或 reflow。</p>
-		<p>全局&增量；异步&同步</p>
+		<h2>布局 Layout (Reflow)</h2>
+			<img src="layout.png" alt="">
+			<ul>
+				<li>当渲染对象被创建并添加到树中，它们并没有位置和大小，计算这些值的过程称为 layout 或 reflow
+				</li>
+				<li>布局过程输出一个「盒模型」，它精确捕获每个元素在视口中的准确位置及尺寸：所有相对度量单位都被转换为屏幕上的绝对像素位置，等等。</li>
+				<li>递归的过程</li>
+				<li>batch layouts &amp; Immediate layout</li>
+			</ul>
 		<br/>
+	</div>
+	<div class="slide" data-index="9">
+		<img src="good.png" alt="">
+		<img src="bad.png" alt="">
+	</div>
+	<div class="slide" data-index="9">
 		<h2>绘制 Paint</h2>
 		<p>绘制顺序</p>
 		<p>背景色 -> 背景图 －> border －> children －> outline  </p>
@@ -156,7 +217,6 @@
 			<li>Bootstrap <a href="http://v3.bootcss.com/css/#grid" target="_blank">eg</a></li>
 			<li>Foundation <a href="http://www.foundcss.com/grid" target="_blank">eg</a></li>
 		</ul>
-		
 		<p>flexbox 栅格</p>
 		<ul>
 			<li>Pure.css <a href="http://purecss.io/grids/" target="_blank">eg</a></li>
