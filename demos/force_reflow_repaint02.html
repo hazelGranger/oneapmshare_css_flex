@@ -45,12 +45,12 @@
 			$('#btn').click(function(){
 				$('.eg').show();
 				//通过获取属性 强制 reflow  repaint
-				//$('.eg').css("opacity");
-				$('.eg').addClass("show");
+				$('.eg').css("opacity");
+				//$('.eg').addClass("show");
 				//其他办法 setTimeout
-				// setTimeout(function(){
-				// 	$('.eg').addClass("show");
-				// },100);
+				setTimeout(function(){
+					$('.eg').addClass("show");
+				},100);
 			});
 		});
 	</script>
